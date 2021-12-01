@@ -1,9 +1,9 @@
-const text = await Deno.readTextFile("input.txt");
+const text = Deno.readTextFileSync("input.txt");
 const input = text.split('\n').map(x => parseInt(x));
 
-function Day1(input: number[]) {
-    for (let el1 of input) {
-        for (let el2 of input) {
+function Part1(input: number[]): number {
+    for (const el1 of input) {
+        for (const el2 of input) {
             if (el1 + el2 === 2020) {
                 return el1 * el2;
             }
@@ -11,10 +11,10 @@ function Day1(input: number[]) {
     }
 }
 
-function Day2(input: number[]) {
-    for (let el1 of input) {
-        for (let el2 of input) {
-            for (let el3 of input) {
+function Part2(input: number[]): number {
+    for (const el1 of input) {
+        for (const el2 of input) {
+            for (const el3 of input) {
                 if (el1 + el2 + el3 === 2020) {
                     return el1 * el2 * el3;
                 }
