@@ -1,7 +1,7 @@
-const text = await Deno.readTextFile("input.txt");
+const text = Deno.readTextFileSync("input.txt");
 const input = text.split('\n');
 
-function Day1(input: string[]) {
+function Part1(input: string[]): number {
     let totalCount = 0;
 
     input.forEach(line => {
@@ -19,7 +19,7 @@ function Day1(input: string[]) {
     return totalCount;
 }
 
-function Day2(input: string[]) {
+function Part2(input: string[]): number {
     let totalCount = 0;
 
     input.forEach(line => {
