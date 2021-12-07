@@ -3,7 +3,7 @@ function Input(): number[] {
     return text.split(',').map((x: string) => parseInt(x));
 }
 
-function Part1(input: number[]) {
+function Part1(input: number[]): number {
     const min = Math.min(...input);
     const max = Math.max(...input);
 
@@ -26,7 +26,7 @@ function Part1(input: number[]) {
     return lowestFuel
 }
 
-function Part2(input: number[]) {
+function Part2(input: number[]): number {
     const min = Math.min(...input);
     const max = Math.max(...input);
 
