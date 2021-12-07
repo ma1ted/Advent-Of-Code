@@ -1,5 +1,7 @@
-const text = Deno.readTextFileSync("input.txt");
-const input = text.split(',').map((x: string) => parseInt(x));
+function Input(): number[] {
+    const text = Deno.readTextFileSync("input.txt");
+    return text.split(',').map((x: string) => parseInt(x));
+}
 
 function Part1(input: number[]) {
     const min = Math.min(...input);
@@ -47,4 +49,5 @@ function Part2(input: number[]) {
 
     return lowestFuel
 }
-console.log(Part2(input))
+
+export { Input, Part1, Part2 }
