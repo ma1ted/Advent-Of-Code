@@ -1,5 +1,5 @@
 function Input(): number[] {
-    const text = Deno.readTextFileSync("input.txt");
+    const text = Deno.readTextFileSync("Typescript (Deno)/2021/Day 7/input.txt");
     return text.split(',').map((x: string) => parseInt(x));
 }
 

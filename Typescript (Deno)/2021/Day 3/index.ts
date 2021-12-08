@@ -1,5 +1,5 @@
 function Input(): string[] {
-    const text = Deno.readTextFileSync("input.txt");
+    const text = Deno.readTextFileSync("Typescript (Deno)/2021/Day 3/input.txt");
     return text.split('\n');
 }
 

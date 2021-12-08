@@ -1,7 +1,7 @@
 // deno-lint-ignore-file
 
 function Input() {
-    const text = Deno.readTextFileSync("input.txt");
+    const text = Deno.readTextFileSync("Typescript (Deno)/2021/Day 5/input.txt");
     const input = text.split("\n");
 }
 
