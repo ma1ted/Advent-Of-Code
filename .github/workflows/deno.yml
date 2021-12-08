@@ -20,7 +20,7 @@ jobs:
           deno-version: v1.16.x
           
       - name: dir
-        run: pwd
+        run: ls -a
 
       - name: Run linter
         run: deno lint
