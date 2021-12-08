@@ -3,7 +3,7 @@ function Input(): string[] {
     return text.split('\n');
 }
 
-function Part1(input: string[]) {
+function Part1(input: string[]): number {
     let gamma = "";
     let epsilon = "";
 
