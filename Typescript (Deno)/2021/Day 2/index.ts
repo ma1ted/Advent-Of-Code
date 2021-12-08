@@ -1,7 +1,9 @@
-const text = Deno.readTextFileSync("input.txt");
-const input = text.split('\n');
+function Input(): string[] {
+    const text = Deno.readTextFileSync("input.txt");
+    return text.split('\n');
+}
 
-function Part1(input: string[]) {
+function Part1(input: string[]): number {
     let horPos = 0;
     let depth = 0;
     
@@ -24,7 +26,7 @@ function Part1(input: string[]) {
     return horPos * depth;
 }
 
-function Part2(input: string[]) {
+function Part2(input: string[]): number {
     let horPos = 0;
     let depth = 0;
     let aim = 0;
@@ -48,3 +50,5 @@ function Part2(input: string[]) {
 
     return horPos * depth;
 }
+
+export { Input, Part1, Part2 }
