@@ -1,7 +1,9 @@
-const text = Deno.readTextFileSync("input.txt");
-const input = text.split('\n\n');
+function Input(): string[] {
+    const text = Deno.readTextFileSync("input.txt");
+    return text.split('\n\n');
+}
 
-function Part1(input: string[]) {
+function Part1(input: string[]): number {
     const nums = input[0].split(',');
 
     // Track the currently winning board throughout the tests
@@ -10,7 +12,7 @@ function Part1(input: string[]) {
     // Start on 1 to skip the numbers at index 0
     for (let board = 1; board < input.length; board++) {
         const rows = [];
-        let cols: string[][] = [[], [], [], [], []]; // It is 4am shut up
+        let cols: string[][] = Array(5).fill([])
         for (let row = 0; row < input[board].split('\n').length; row++) {
             const r = input[board].split('\n')[row].trim().split(/\s+/);
             rows.push(r);
@@ -29,7 +31,7 @@ function Part1(input: string[]) {
             for (let n = 0; n < nums.length; n++) {
                 revealedNums.push(nums[n]);
                 
-                // If rows[row]'s values all appear in revealedNums. When it gets to 5
+                // If rows[row]'s values all appear in revealedNums when it gets to 5
                 let appearedInRow = 0;
                 for (const r in rows[row]) {
                     if (revealedNums.includes(rows[row][r])) appearedInRow++;
@@ -41,13 +43,13 @@ function Part1(input: string[]) {
             }
         }
 
-        //Now the columns!
+        //Now the columns
         for (let col = 0; col < cols.length; col++) {
             const revealedNums = [];
             for (let n = 0; n < nums.length; n++) {
                 revealedNums.push(nums[n]);
                 
-                // If cols[col]'s values all appear in revealedNums. When it gets to 5
+                // If cols[col]'s values all appear in revealedNums when it gets to 5
                 let appearedInCol = 0;
                 for (const c in cols[col]) {
                     if (revealedNums.includes(cols[col][c])) appearedInCol++;
@@ -64,18 +66,24 @@ function Part1(input: string[]) {
         }
     }
 
-    return parseInt(nums[winningBoard.count]) * input[winningBoard.board].split(/\s+/).filter(x => !nums.slice(0,winningBoard.count+1).includes(x)).map(x => parseInt(x)).reduce((p: number, c: number) => p + c);
+    return parseInt(nums[winningBoard.count]) *
+    input[winningBoard.board]
+        .split(/\s+/)
+        .filter(x => !nums.slice(0, winningBoard.count + 1)
+            .includes(x))
+        .map(x => parseInt(x))
+        .reduce((p: number, c: number) => p + c);
 }
 
 import { maxBy } from "https://deno.land/std@0.117.0/collections/mod.ts";
-function Part2(input: string[]) {
+function Part2(input: string[]): number {
     const nums = input[0].split(',');
 
     let completedBoards = [];
 
     for (let board = 1; board < input.length; board++) {
         const rows = [];
-        let cols: string[][] = [[], [], [], [], []]; 
+        let cols: string[][] = [[], [], [], [], []]; // It is 4am shut up
         for (let row = 0; row < input[board].split('\n').length; row++) {
             const r = input[board].split('\n')[row].trim().split(/\s+/);
             rows.push(r);
@@ -119,7 +127,13 @@ function Part2(input: string[]) {
             }
         }
 
-        const unmarkedSum = input[board].trim().split(/\s+/).filter(x => !nums.slice(0, lowestN + 1).includes(x)).map(x => parseInt(x)).reduce((p: number, c: number) => p + c);
+        const unmarkedSum = input[board]
+            .trim()
+            .split(/\s+/)
+            .filter(x => !nums.slice(0, lowestN + 1)
+                .includes(x))
+            .map(x => parseInt(x))
+            .reduce((p: number, c: number) => p + c);
 
         completedBoards.push({ count: lowestN, board: board, unmarkedSum: unmarkedSum });
     }
@@ -128,4 +142,5 @@ function Part2(input: string[]) {
 
     return value!.unmarkedSum * parseInt(nums[value!.count])
 }
-              
+
+export { Input, Part1, Part2 }
