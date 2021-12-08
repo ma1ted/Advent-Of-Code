@@ -1,5 +1,9 @@
-const text = Deno.readTextFileSync("input.txt");
-const input = text.split("\n");
+// deno-lint-ignore-file
+
+function Input() {
+    const text = Deno.readTextFileSync("input.txt");
+    const input = text.split("\n");
+}
 
 function Part1(input: string[]) {
     const coords = input.map(i => i
@@ -44,7 +48,6 @@ function Part1(input: string[]) {
             intersections.push(intersection);
         }
     }
-    console.log(intersections)
     
     const uniqueIntersections = intersections //element, index, array
         .map((ar: number[]) => JSON.stringify(ar))
@@ -53,3 +56,5 @@ function Part1(input: string[]) {
 
     return uniqueIntersections.length
 }
+
+export { Input, Part1 }
