@@ -1,5 +1,7 @@
-const text = Deno.readTextFileSync("input.txt");
-const input = text.split('\n');
+function Input(): string[] {
+    const text = Deno.readTextFileSync("input.txt");
+    return text.split('\n');
+}
 
 function Part1(input: string[]): number {
     const incrementCount = 3;
