@@ -61,3 +61,5 @@ function Part2(input: string[]) {
 
     return totalTrees;
 }
+
+export { Input, Part1, Part2 }
