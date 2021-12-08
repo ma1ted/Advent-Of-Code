@@ -1,5 +1,5 @@
 function Input(): number[] {
-    const text = Deno.readTextFileSync("input.txt");
+    const text = Deno.readTextFileSync("./input.txt");
     return text.split('\n').map(x => parseInt(x));
 }
 
