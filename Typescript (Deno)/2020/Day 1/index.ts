@@ -6,8 +6,8 @@ function Input(): number[] {
 function Part1(input: number[]): number {
     let result = -1;
 
-    for (let el1 of input) {
-        for (let el2 of input) {
+    for (const el1 of input) {
+        for (const el2 of input) {
             if (el1 + el2 === 2020) {
                 result = el1 * el2;
             }
@@ -20,9 +20,9 @@ function Part1(input: number[]): number {
 function Part2(input: number[]): number {
     let result = -1;
 
-    for (let el1 of input) {
-        for (let el2 of input) {
-            for (let el3 of input) {
+    for (const el1 of input) {
+        for (const el2 of input) {
+            for (const el3 of input) {
                 if (el1 + el2 + el3 === 2020) {
                     result = el1 * el2 * el3;
                 }
