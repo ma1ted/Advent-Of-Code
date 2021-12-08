@@ -6,7 +6,5 @@ Deno.test("2021 Day 1 Part 1", () => {
 });
 
 Deno.test("2021 Day 1 Part 2", () => {
-    console.log("PART 2:");
-    console.log(Part2(Input()))
     assert(1311 === Part2(Input()))
 });
