@@ -12,7 +12,7 @@ function Part1(input: string[]): number {
     // Start on 1 to skip the numbers at index 0
     for (let board = 1; board < input.length; board++) {
         const rows = [];
-        let cols: string[][] = Array(5).fill([])
+        const cols: string[][] = Array(5).fill([])
         for (let row = 0; row < input[board].split('\n').length; row++) {
             const r = input[board].split('\n')[row].trim().split(/\s+/);
             rows.push(r);
@@ -79,11 +79,11 @@ import { maxBy } from "https://deno.land/std@0.117.0/collections/mod.ts";
 function Part2(input: string[]): number {
     const nums = input[0].split(',');
 
-    let completedBoards = [];
+    const completedBoards = [];
 
     for (let board = 1; board < input.length; board++) {
         const rows = [];
-        let cols: string[][] = [[], [], [], [], []]; // It is 4am shut up
+        const cols: string[][] = [[], [], [], [], []]; // It is 4am shut up
         for (let row = 0; row < input[board].split('\n').length; row++) {
             const r = input[board].split('\n')[row].trim().split(/\s+/);
             rows.push(r);
