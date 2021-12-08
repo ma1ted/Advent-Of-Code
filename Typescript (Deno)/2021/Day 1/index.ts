@@ -13,7 +13,7 @@ function Part1(input: number[]): number {
     return largerMeasurements;
 }
 
-function Part2(input: number[]): number {
+function Part2(input: number[]) {
     const windowSize = 3;
     let largerWindows = 0;
 
