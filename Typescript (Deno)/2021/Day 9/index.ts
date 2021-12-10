@@ -1,6 +1,8 @@
 function Input(): number[][] {
     const text = Deno.readTextFileSync("Typescript (Deno)/2021/Day 9/input.txt");
-    return text.split('\n')
+    return text
+        .trim()
+        .split('\n')
         .map(x => x.split(''))
         .map(x => x
             .map(y => parseInt(y))
